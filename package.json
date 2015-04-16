@@ -1,0 +1,51 @@
+{
+  "name": "exittest",
+  "description": "Stock Market app",
+  "homepage": "https://github.com/amahajavon/after8",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "keywords": [
+    "gulp",
+    "jshint",
+    "jscs",
+    "server",
+    "hapi",
+    "node",
+    "mongo",
+    "mongoose",
+    "angular"
+  ],
+  "author": "Amah Ajavon <greatmindsent@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/AmahAjavon/after8.git"
+  },
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server/index.js",
+    "localhost": "PORT=3333 nodemon -e js,jade server/index.js",
+    "postinstall": "bower install && gulp build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "firechat": "^2.0.1",
+    "good": "^5.1.2",
+    "good-console": "^4.1.0",
+    "hapi": "^8.4.0",
+    "request": "^2.54.0"
+  },
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "gulp": "^3.8.11",
+    "gulp-babel": "^5.1.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-copy": "0.0.2",
+    "gulp-jade": "^1.0.0",
+    "gulp-jshint": "^1.10.0",
+    "gulp-less": "^3.0.2",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-watch": "^4.2.4",
+    "jshint-stylish": "^1.0.1"
+  }
+}

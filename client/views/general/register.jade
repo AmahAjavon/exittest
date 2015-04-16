@@ -1,0 +1,23 @@
+.container#homepage
+  h1 Register here  
+  .row#homepageRow  
+    .col-lg-5.col-md-4.col-xs-3
+    .col-lg-2.col-md-4.col-xs-6
+      form.form-signin(name='regForm')
+        .form-group(ng-class="{ 'has-error' : regForm.email.$invalid }")
+          label Email
+          input.form-control(type='email', name='email', ng-model='user.email')
+          p.help-block(ng-show='regForm.email.$invalid') Enter a valid email.
+          .form-group(ng-class="{ 'has-error' : regForm.password.$invalid }")
+            label Password
+            input.form-control(type='password', name='password', ng-model='user.password', ng-minlength='8')
+            p.help-block(ng-show='regForm.password.$error.minlength') Min password length is 8 characters.
+            p(style='color:red;', ng-show='regError') {{regErrorMessage}}
+          button.btn.btn-success(type='button', ng-click='signUp()', ng-disabled='!user.email || !user.password') Register
+          .form-group
+            h5 Back to login
+            a#signup(href='#/home')  Sign In
+            br 
+    .col-lg-5.col-md-4.col-xs-3 
+  
+  

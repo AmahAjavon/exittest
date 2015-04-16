@@ -1,0 +1,25 @@
+.container.center#home
+  .row
+    br
+    br 
+  .row
+    br
+    br  
+    h1 Stock Market App 
+      br
+      .row
+        form.form-inline.center(name='stockForm', novalidate)
+          .col-md-2
+          .col-md-8
+            .form-group
+              br
+              input.form-control(type='email', name='email', ng-model='user.email', placeholder='Email')
+              p.help-block(ng-show='signinForm.email.$invalid') Enter a valid email.
+              input.form-control(type='password', name='password', ng-model='user.password', ng-minlength='3', placeholder='Password')
+              p.help-block(ng-show='signinForm.password.$error.minlength') Min password length is 8 characters.
+              button.btn.btn-danger(ng-disabled='!user.email || !user.password', type='button', ng-click='signIn($event)') Sign In      
+          .col-md-2        
+      .row
+        .form-group
+          h5 Not a member?
+          a#signup(href='#/register') Sign Up

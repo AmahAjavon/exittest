@@ -1,0 +1,59 @@
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed(data-toggle="collapse", data-target="#navbar")
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(ui-sref='home') Stock Market
+    #navbar.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li: a(ui-sref='home'): i.fa.fa-sign-out &nbsp; Sign-out
+.container-fluid
+  .row
+    .col-xs-12
+      .row
+        .col-lg-5.col-md-5.col-sm-4
+        .col-lg-2.col-md-2.col-sm-4.col-xs-12
+          ul.profileName.promo1(style='color: #C14242') Welcome home {{ username }}     
+        .col-lg-5.col-md-5.col-sm-4
+  .row
+    h2#balance Balance is $0
+    h3 Add amount to deposit or withdraw
+    input#addAmount(type='number', ng-model='addAmount' placeholder='$')
+    button.btn.btn-warning#deposits(ng-click = 'deposit()') Deposit
+  .row
+    h3 Create Portfolio
+    input#portfolio(type='text', name='title', ng-model='stocktype')
+    button.btn.btn-info#create(ng-click = 'create()') Create
+  .row
+    h2 Buy Stocks
+      h5 Symbol
+      input#symbol(type='text')
+      h5 Company Type
+      select(ng-model='options', ng-options='stocktype.stocktype for stocktype in stocktypes')
+        
+      h5 Shares
+      input#shares(type='number')
+      button.btn.btn-success#buy(type='submit', ng-click='add()') Buy Share
+      br
+      #message
+      br
+.container        
+  .row
+    .col-xs-1
+    .col-xs-10
+      table.table.table-hover.table-striped
+        thead
+          tr
+            th(ng-repeat='stocktype in stocktypes track by $index') {{ stocktype.stocktype }}
+        tbody
+          tr(ng-repeat='portfolio in stocktype track by $index')
+            td {{ portfolio.portfolio }}
+    .col-xs-1 
+  .row      
+    .col-md-8#totals
+      #position
+      #assets
+      
