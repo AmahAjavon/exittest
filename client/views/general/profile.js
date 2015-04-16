@@ -37,6 +37,7 @@ angular.module('exittest')
     } else {
       $('#balance').html('Balance is: $'+ sum);
       totalAssets = totalPosition + sum;
+      balDataRef.update({balance: balance});
       //  $('#assets').html('Total Assets is: $' +totalAssets);
     }
   }
@@ -76,7 +77,7 @@ angular.module('exittest')
 
         totalPosition += position;
         var $symbol = $('#symbol').val();
-        $('#position').append('' + $symbol + ': $' +totalPosition);
+        $('#position').append('<p>' + '' + $symbol + ': $' +totalPosition + '</p>');
         //
         totalAssets = totalPosition + sum;
         $('#assets').html('Total Assets is: $' +totalAssets);
@@ -99,14 +100,14 @@ angular.module('exittest')
         $sell.click(function() {
           console.log('sell pressed');
           $('#balance').html('Balance is: $'+ (sum += position));
-          $('#position').append( '' + $symbol + ': $' + (totalPosition -= position));
+          $('#position').append( '<p>' + '' + $symbol + ': $' + (totalPosition -= position) + '</p>');
           // $('.sharenumber').html( '' + $symbol + ': $' + (totalPosition -= position));
 
         });
       }
     });
   }
-
+}]);
 
   // $('#deposits').click(function() {
   //   var amount = $('#amount').val();
@@ -157,10 +158,3 @@ angular.module('exittest')
   //
   //
   // }
-
-
-
-
-
-
-}]);
